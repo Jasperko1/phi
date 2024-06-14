@@ -31,8 +31,8 @@ jobs:
         run: echo "$PWD"
       # Runs a single command using the runners shell
       - name: Install files
-        run: python /home/runner/work/phi/setup.py
+        run: python setup.py
 
       # Runs a set of commands using the runners shell
       - name: Run program
-        run: python /home/runner/work/phi/main.py
+        run: python main.py
