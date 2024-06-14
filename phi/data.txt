@@ -1,0 +1,6 @@
+[HELLO#Hi! How's your day been?]
+[HELLO#Hello! How's your day?]
+[HEY#Hi! How's your day been?]
+[HI#Hi! How's your day been?]
+[SUP#Hi! How's your day been?]
+[HOW DAY#Pretty good! Thanks for asking!]
