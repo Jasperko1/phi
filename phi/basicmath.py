@@ -1,7 +1,7 @@
 def returnvalue(sentence):
     sentence_r = sentence.lower()
     units = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen", "sixteen", "seventeen", "eighteen", "nineteen"]
-    tens = ["", "", "twewnty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"]
+    tens = ["", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"]
     scales = ["hundred", "thousand", "million", "billion", "trillion"]
     symbolized = sentence_r.replace(" ", "#")
     symbolized = symbolized.replace("-", "#")
@@ -14,6 +14,7 @@ def returnvalue(sentence):
     symbolized = symbolized.replace("divide", "/")
     symbolized = symbolized.replace("times", "*")
     symbolized = symbolized.replace("multiplied#by", "*")
+    symbolized = symbolized.replace("and#", "")
     oplist = []
     strinlist = ""
     rawstr = symbolized.split("#")
@@ -70,10 +71,7 @@ def returnvalue(sentence):
     for m in range(0, len(oplist)):
         if oplist[m] == "~":
             oplist[m] = "-"
-            a_here = oplist[m-1]
-            b_here = oplist[m+1]
-            oplist[m+1] = a_here
-            oplist[m-1] = b_here
+            oplist = oplist[m+1:] + ["-"] + oplist[:m]
     print("".join(oplist))
     return eval("".join(oplist))
 
