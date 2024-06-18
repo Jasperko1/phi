@@ -54,12 +54,12 @@ def now(userinput, subject):
         if sentence_each:
             generated_list.append(random.choice(sentence_each))
     if not generated_list:
-            if score < -0.25:
-                generated_list.append("Oh no, that's bad.")
-           elif score >= 0.25:
-                generated_list.append("Great!")
-           else:
-                generated_list.append("Okay.")
+        if score < -0.25:
+            generated_list.append("Oh no, that's bad.")
+        elif score >= 0.25:
+            generated_list.append("Great!")
+        else:
+            pass
     if "That would be " + basicmath.returnvalue(mathdetect) + "." == "That would be invalid.":
         return " ".join(generated_list)
     elif "That would be " + basicmath.returnvalue(mathdetect) + "." == "That would be decimal.":
