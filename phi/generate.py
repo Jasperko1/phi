@@ -33,12 +33,6 @@ def now(userinput, subject):
     score = sentiment.emotionscore(subject.capitalize()+". "+"".join(userinput))
     sentence_list = []
     generated_list = []
-    if score < -0.25:
-        generated_list.append("Oh no, that's bad.")
-    elif score >= 0.25:
-        generated_list.append("Great!")
-    else:
-        pass
     for sentence in usi:
         i = nltk.word_tokenize(sentence)
         i = " ".join([lem.lemmatize(k) for k in i if k.isalpha() and k not in stop])
@@ -60,7 +54,12 @@ def now(userinput, subject):
         if sentence_each:
             generated_list.append(random.choice(sentence_each))
     if not generated_list:
-        generated_list.append("Okay.")
+            if score < -0.25:
+                generated_list.append("Oh no, that's bad.")
+           elif score >= 0.25:
+                generated_list.append("Great!")
+           else:
+                generated_list.append("Okay.")
     if "That would be " + basicmath.returnvalue(mathdetect) + "." == "That would be invalid.":
         return " ".join(generated_list)
     elif "That would be " + basicmath.returnvalue(mathdetect) + "." == "That would be decimal.":
