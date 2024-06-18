@@ -59,7 +59,7 @@ def now(userinput, subject):
         elif score >= 0.25:
             generated_list.append("Great!")
         else:
-            pass
+            generated_list.append("Okay.")
     if "That would be " + basicmath.returnvalue(mathdetect) + "." == "That would be invalid.":
         return " ".join(generated_list)
     elif "That would be " + basicmath.returnvalue(mathdetect) + "." == "That would be decimal.":
